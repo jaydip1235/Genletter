@@ -14,6 +14,7 @@ import './Home.css';
 const Home = () => {
 
   const navigate=useNavigate();
+  
 
   const [company, setCompany] = useState("");
   const [text,setText] =useState("");
