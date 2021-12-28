@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -14,7 +14,7 @@ import './Home.css';
 const Home = () => {
 
   const navigate=useNavigate();
-  
+
 
   const [company, setCompany] = useState("");
   const [text,setText] =useState("");
@@ -35,6 +35,10 @@ const Home = () => {
       navigate(`generateletter`,{state:{company,sub,isName,username,address,logo,refNo,designation,joiningDate,text}});
     }
   }
+
+  useEffect(()=>{
+    if(window.screen.width<585) alert("Please open in a larger device for best experience!");
+  },[])
 
   // const handleCompany = (event) => {
   //   setCompany(event.target.value);
