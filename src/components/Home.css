@@ -1,0 +1,136 @@
+.tfield{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  margin-top: 5% !important;
+
+  
+}
+.heading{
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+  /* font-size: 3rem; */
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px;
+}
+
+.mybtn {
+  background: rgb(96,9,240);
+  background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
+  border: none;
+  width: 50%;
+  font-weight: bold;
+  
+}
+.mybtn:before {
+  height: 0%;
+  width: 2px;
+}
+.mybtn:hover {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+@media only screen and (min-width: 768px)  {
+  .mq{
+      margin-top: 2% !important;
+  }
+}
+.CKedit {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  }
+  
+  .editor {
+  margin-left: 10px;
+  width: 630px;
+  }
+  @media screen and (max-width: 1200px) and (min-width: 1100px)  {
+      .editor {
+          width: 535px;
+      }    
+      .ck-editor__editable_inline {
+          width: 535px;
+      }
+  }
+  
+  @media screen and (max-width: 1100px) and (min-width: 1025px)  {
+      .editor {
+          width: 490px;
+      }    
+      .ck-editor__editable_inline {
+          width: 490px;
+      }
+  }
+  
+  @media screen and (max-width: 1025px) and (min-width: 200px)  {
+      .editor {
+          width: 360px;
+      }    
+      .ck-editor__editable_inline {
+          width: 360px;
+      }
+  }
+  
+  @media screen and (max-width: 950px) and (min-width: 780px)  {
+      .editor {
+          width: 700px;
+      }    
+      .ck-editor__editable_inline {
+          width: 700px;
+      }
+  }
+  
+  @media screen and (max-width: 780px) and (min-width: 690px)  {
+      .editor {
+          width: 610px;
+      }    
+      .ck-editor__editable_inline {
+          width: 610px;
+      }
+  }
+  
+  @media screen and (max-width: 690px) and (min-width: 600px)  {
+      .editor {
+          width: 500px;
+      }    
+      .ck-editor__editable_inline {
+          width: 500px;
+      }
+  }
+  
+  @media screen and (max-width: 600px) and (min-width: 480px)  {
+      .editor {
+          width: 400px;
+      }    
+      .ck-editor__editable_inline {
+          width: 400px;
+      }
+      .btn5_upload {
+          width: 250px;
+      }
+  }
+  
+  @media screen and (max-width: 480px) and (min-width: 420px)  {
+      .editor {
+          width: 300px;
+      }    
+      .ck-editor__editable_inline {
+          width: 300px;
+      }
+      .btn5_upload {
+          width: 250px;
+      }
+  }
+  
+  @media screen and (max-width: 420px) and (min-width: 200px)  {
+      .editor {
+          width: 270px;
+      }    
+      .ck-editor__editable_inline {
+          width: 270px;
+      }
+      .btn5_upload {
+          width: 250px;
+      }
+  }

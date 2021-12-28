@@ -1,0 +1,36 @@
+.body { 
+  padding: 0px !important;
+  margin: 0px !important;
+  box-sizing: border-box !important;
+  background-color:#00c0d9 !important;
+} 
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #00c0d9;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #d7a8f7;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A239EA;
+}
+

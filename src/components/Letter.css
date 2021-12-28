@@ -1,0 +1,30 @@
+.mybtn {
+  background: rgb(96,9,240);
+  background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
+  border: none;
+  width: 50%;
+  font-weight: bold;
+  
+}
+#pdf-div{
+    overflow-x: hidden !important;
+    border : 2px solid white;
+    border-radius : '5px';
+    
+}
+.heading{
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+  /* font-size: 3rem; */
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px;
+}
+.mybtn:before {
+  height: 0%;
+  width: 2px;
+}
+.mybtn:hover {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
