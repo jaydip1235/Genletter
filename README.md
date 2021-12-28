@@ -1,6 +1,7 @@
 # Genletter
 ## To visit Genletter click [here](https://genletter.herokuapp.com/)
 
+
 ## Developed By:
  ➤ [Jaydip Dey](https://github.com/jaydip1235)
 
@@ -13,6 +14,8 @@
     It is also flexible in the sense that all the input fields are
     not required while generating the pdf so that it can be done
     as per the needs.
+    
+    P.S : Open in larger device(Laptop/Desktop) for best experience
 
 ## Screenshots
 [![page1.png](https://i.postimg.cc/VLzkQct2/page1.png)](https://postimg.cc/YjyHYZbx)
