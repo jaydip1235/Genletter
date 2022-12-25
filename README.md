@@ -1,5 +1,5 @@
 # Genletter
-## To visit Genletter click [here](https://genletter.herokuapp.com/)
+## To visit Genletter click [here](https://genletter.netlify.app/)
 
 
 ## Developed By:
