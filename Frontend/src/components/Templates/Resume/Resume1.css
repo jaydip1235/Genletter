@@ -1,0 +1,125 @@
+.resume {
+    display: flex;
+    margin: 84.688px auto 0;
+    justify-content: center;
+}
+
+.left {
+    background-color: #323b4c;
+    width: 25%;
+    padding-top: 66.5px;
+    padding-right: 35px;
+    padding-left: 35px;
+    color: #fff;
+}
+
+.right {
+    background-color: white;
+    width: 60%;
+    padding: 50px;
+}
+
+.email {
+    text-decoration: none;
+    color: white;
+}
+
+.left-section-content {
+    margin: 20px 0;
+}
+
+.name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #323b4c;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    margin: 25px 0 15px;
+    font-weight: 550;
+    color: #323b4c;
+}
+
+.left-section-title {
+    font-size: 1.6rem;
+    font-weight: 550;
+    margin: 80.5px 0 0;
+}
+
+.section-content {
+    margin-bottom: 10px;
+}
+
+.section-content-heading {
+    font-size: 1.25rem;
+    margin: 8px 0;
+    font-weight: 500;
+    color: grey;
+}
+
+.left-section-content-heading {
+    font-size: 1.25rem;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.section-content-subheading {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+li {
+    font-size: 1.05rem;
+}
+
+.last {
+    margin-top: 49px;
+}
+
+.btn-div {
+    text-align: center;
+    margin: 0 0 35px;
+}
+
+.btn {
+  margin-top: 25px;
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6B7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.btn:hover {
+  background-color: #374151;
+}
+
+.btn:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: .75rem 1.2rem;
+  }
+}

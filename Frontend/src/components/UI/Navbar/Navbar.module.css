@@ -1,0 +1,31 @@
+.list {
+    z-index: 1;
+    list-style-type: none;
+    margin: 0;
+    padding: 25px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    vertical-align: middle;
+}
+
+.navbar {
+    background-color: black;
+}
+
+.left {
+    display: inline;
+}
+
+.right {
+    display: inline;
+    float: right;
+}
+
+.logo {
+    height: 2%;
+    width: 2%;
+    vertical-align: middle;
+}

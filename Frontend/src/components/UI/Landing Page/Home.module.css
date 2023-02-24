@@ -1,0 +1,27 @@
+.group {
+    padding-left: 70.212px;
+    height: 100vh;
+}
+
+.text {
+    padding-top: 225px;
+    vertical-align: middle;
+}
+
+.welcome_content {
+    color: #f8d16e;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.welcome_heading {
+    font-size: 3rem;
+    max-width: 550px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.welcome_description {
+    color: #FAF8F1;
+    font-size: 1.2rem;
+}

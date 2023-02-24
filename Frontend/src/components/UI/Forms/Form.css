@@ -1,0 +1,11 @@
+form {
+    background-color: #ebe4d3;
+    opacity: 70%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 150px auto;
+    padding: 0 30px 30px;
+    width: 50%;
+    border-radius: 5px;
+}

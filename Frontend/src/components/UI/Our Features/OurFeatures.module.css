@@ -1,0 +1,22 @@
+.bg {
+    background-color: #2a242a;
+    color: white;
+    padding: 142px 70.212px;
+}
+
+.heading {
+    text-align: center;
+    color: grey;
+    font-size: 1.5rem;
+}
+
+.subheading {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.cards {
+    display: flex;
+    margin: 50px 0;
+}
