@@ -40,6 +40,26 @@ const OfferLetter1 = () => {
         return content + '.';
     }
 
+    // const downloadHandler = () => {
+    //     const source = document.getElementById("offer_letter");
+    //     const doc = new jsPDF({
+    //         orientation: 'portrait',
+    //         format: 'letter',
+    //         unit: 'px'
+    //     });
+    //     doc.html(source, {
+    //         callback: function (pdf) {
+    //             pdf.save(`${props.candidateDetails.fname} ${props.candidateDetails.lname} Offer Letter.pdf`);
+    //         },
+    //         x: -30,
+    //         y: -35,
+    //         html2canvas: {
+    //             scale: 0.4,
+    //             useCORS: true
+    //         }
+    //     });
+    // };
+
     const downloadHandler = async () => {
         const download = document.getElementById('offer_letter');
         html2canvas(download)
@@ -60,7 +80,7 @@ const OfferLetter1 = () => {
                     <img src={props.companyDetails.companyLogoURL} alt='company-logo' className={`${styles.logo}`} />
                     <div>
                         <div className={`${styles.company_name}`}>{props.companyDetails.companyName}</div>
-                        <div style={{textAlign:'right', fontSize:'1.2rem'}}>{props.jobDetails.jobLocation}</div>
+                        <div style={{ textAlign: 'right', fontSize: '1.2rem' }}>{props.jobDetails.jobLocation}</div>
                     </div>
                 </div>
                 <hr />
