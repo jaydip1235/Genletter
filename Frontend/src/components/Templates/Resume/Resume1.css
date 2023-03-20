@@ -82,6 +82,22 @@ li {
     margin: 0 0 35px;
 }
 
+.list {
+    padding-left: 17px;
+}
+
+.li {
+    font-weight: 500;
+    /* display: inline-block; */
+    /* list-style-type: disc; */
+    pointer-events: initial;
+}
+
+.item {
+    /* font-weight: 300; */
+    font-size: 1.05rem;
+}
+
 .btn {
   margin-top: 25px;
   background-color: #111827;

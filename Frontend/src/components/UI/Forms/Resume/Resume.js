@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PersonalDetails from "./PersonalDetails";
 import Links from "./Links";
 import EducationalDetails from "./EducationalDetails";
@@ -8,9 +8,13 @@ import Achievements from "./Achievements";
 import Skills from "./Skills";
 import POR from "./POR";
 import FinalPage from "./FinalPage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 function Resume() {
+
+    const { id } = useParams();
+    // console.log(id);
     const navigate = useNavigate();
 
     const [index, setIndex] = useState(1);
@@ -75,6 +79,19 @@ function Resume() {
             }]
         }]
     });
+
+    useEffect(() => {
+        if (id) {
+            axios.get(`http://localhost:5000/edit/resume/${id}`)
+                .then((response) => {
+                    console.log(response.data);
+                    setRefs(response.data);
+                })
+                .catch(() => {
+                    alert('error!');
+                })
+        }
+    }, [id]);
 
     const handleChange = input => e => {
         setRefs({ ...refs, [input]: e.target.value });
@@ -224,21 +241,42 @@ function Resume() {
         setIndex(index + 1);
     }
 
+    const formatDate = () => {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1; // Months start at 0!
+        let dd = today.getDate();
+        let hrs = today.getHours();
+        let mins = today.getMinutes();
+        var ampm = hrs >= 12 ? 'pm' : 'am';
+        hrs = hrs % 12;
+        hrs = hrs ? hrs : 12; // the hour '0' should be '12'
+        mins = mins < 10 ? '0' + mins : mins;
+        var strTime = hrs + ':' + mins + ' ' + ampm;
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+
+        const formattedToday = strTime + ', ' + dd + '/' + mm + '/' + yyyy;
+        return formattedToday;
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // const obj = {
-        //     fname: refs.fnameRef,
-        //     lname: refs.lnameRef,
-        //     roll: refs.rollnoRef,
-        //     email: refs.emailRef,
-        //     phone: refs.phoneRef,
-        //     education: refs.educationRef,
-        //     workex: refs.workexRef,
-        //     projects: refs.projectsRef,
-        //     achievements: refs.achievementsRef,
-        //     skills: refs.skillsRef,
-        //     por: refs.porRef
-        // }
+        const obj = {
+            fname: refs.fnameRef,
+            lname: refs.lnameRef,
+            roll: refs.rollnoRef,
+            links: refs.linksRef,
+            email: refs.emailRef,
+            phone: refs.phoneRef,
+            education: refs.educationRef,
+            workex: refs.workexRef,
+            projects: refs.projectsRef,
+            achievements: refs.achievementsRef,
+            skills: refs.skillsRef,
+            por: refs.porRef,
+            date: formatDate()
+        };
         setRefs({
             fnameRef: '',
             lnameRef: '',
@@ -285,20 +323,20 @@ function Resume() {
                 work: ''
             }]
         });
-        navigate('/resume/templates/2', { state: refs });
+        navigate('/resume/templates/1', { state: refs });
 
-        // await fetch("http://localhost:5000/templates/resume", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(obj),
-        // })
-        //     .catch(error => {
-        //         window.alert(error);
-        //         console.log("error");
-        //         return;
-        //     });
+        await fetch("http://localhost:5000/resume", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id: id, ...obj }),
+        })
+            .catch(error => {
+                window.alert(error);
+                console.log("error");
+                return;
+            });
     }
 
     let content = '';

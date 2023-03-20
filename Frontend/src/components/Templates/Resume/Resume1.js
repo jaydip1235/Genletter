@@ -44,9 +44,23 @@ const Resume1 = () => {
                     ))}
                     <div className='left-section-title last'>Skills</div>
                     <hr></hr>
-                    {props.skillsRef.map(skill => (
+                    {/* {props.skillsRef.map(skill => (
                         <span className='section-content'>{skill.skill}, </span>
-                    ))}
+                    ))} */}
+                    <ul className='list'>
+                        <li className='li'>Languages</li>
+                        {props.skillsRef.languages.map((language, index) => (
+                            <span key={index} className='item'>{language} </span>
+                        ))}
+                        <li className='li'>Tools, Frameworks and Databases</li>
+                        {props.skillsRef.frameworksLibrariesAndDatabases.map((flad, index) => (
+                            <span key={index} className='item'>{flad} </span>
+                        ))}
+                        <li className='li'>Subjects</li>
+                        {props.skillsRef.languages.map((subject, index) => (
+                            <span key={index} className='item'>{subject} </span>
+                        ))}
+                    </ul>
                 </div>
                 <div className='right'>
                     <div className='name'>{props.fnameRef} {props.lnameRef}</div>

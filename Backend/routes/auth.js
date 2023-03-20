@@ -1,14 +1,18 @@
 const router = require("express").Router();
 const passport = require("passport");
+const passportEmail = require('../passport');
 require('dotenv').config();
 
-router.get("/login/success", (req, res) => {
+router.get("/login/success", async (req, res) => {
+    // const email = await passportEmail.getUserProfile();
+    // console.log(email);
     if (req.user) {
         res.status(200).json({
             error: false,
             message: "Successfully Logged In",
             user: req.user,
         });
+        // console.log(req.user.emails[1]);
     } else {
         res.status(403).json({ error: true, message: "Not Authorized" });
     }

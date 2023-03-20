@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 import CandidateDetails from './CandidateDetails';
 import CompanyDetails from './CompanyDetails';
 import DateToday from './DateToday';
@@ -9,6 +10,9 @@ import JobDetails from './JobDetails';
 import PersonalDetails from './PersonalDetails';
 
 const OfferLetter = () => {
+
+  const { id } = useParams();
+
   const navigate = useNavigate();
   const [index, setIndex] = useState(1);
 
@@ -44,6 +48,19 @@ const OfferLetter = () => {
       dateToday: ''//done
     }
   })
+
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:5000/edit/offer_letter/${id}`)
+        .then((response) => {
+          console.log(response.data);
+          setRefs(response.data);
+        })
+        .catch(() => {
+          alert('error!');
+        })
+    }
+  }, [id]);
 
   const fieldChangeHandler = input => e => {
     const split = input.split(' '), cat = split[0], subCat = split[1];
@@ -92,8 +109,63 @@ const OfferLetter = () => {
     setIndex(index - 1);
   }
 
+  const formatDate = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+    let hrs = today.getHours();
+    let mins = today.getMinutes();
+    var ampm = hrs >= 12 ? 'pm' : 'am';
+    hrs = hrs % 12;
+    hrs = hrs ? hrs : 12; // the hour '0' should be '12'
+    mins = mins < 10 ? '0' + mins : mins;
+    var strTime = hrs + ':' + mins + ' ' + ampm;
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedToday = strTime + ', ' + dd + '/' + mm + '/' + yyyy;
+    console.log(formattedToday);
+    return formattedToday;
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(refs);
+    const obj = {
+      candidateDetails: {
+        fname: refs.candidateDetails.fname,
+        lname: refs.candidateDetails.lname
+      },
+      companyDetails: {
+        companyName: refs.companyDetails.companyName,
+        companyLogoURL: refs.companyDetails.companyLogoURL
+      },
+      jobDetails: {
+        jobType: refs.jobDetails.jobType,
+        jobTitle: refs.jobDetails.jobTitle,
+        startDate: refs.jobDetails.startDate,
+        responsibilitiesAndExpectations: refs.jobDetails.responsibilitiesAndExpectations,
+        reportingDept: refs.jobDetails.reportingDept,
+        salary: refs.jobDetails.salary,
+        salaryFrequency: refs.jobDetails.salaryFrequency,
+        otherBenefits: refs.jobDetails.otherBenefits,
+        paidLeaves: refs.jobDetails.paidLeaves
+      },
+      deadline: {
+        deadline: refs.deadline.deadline
+      },
+      personalDetails: {
+        name: refs.personalDetails.name,
+        title: refs.personalDetails.title,
+        signature: refs.personalDetails.signature
+      },
+      dateToday: {
+        dateToday: refs.dateToday.dateToday
+      },
+      date: formatDate()
+    }
+
     setRefs({
       candidateDetails: {
         fname: '', //done
@@ -127,6 +199,20 @@ const OfferLetter = () => {
       }
     });
     navigate('/offer_letter/templates/1', { state: refs });
+
+    await fetch("http://localhost:5000/offer_letter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id, ...obj }),
+    })
+      .catch(error => {
+        window.alert(error);
+        console.log("error");
+        return;
+      });
+
   }
 
   let content = '';

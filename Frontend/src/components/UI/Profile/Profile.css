@@ -1,0 +1,25 @@
+.profile {
+    margin: 84.688px 84.688px 0;
+    padding: 60px;
+    background-color: white;
+    font-size: 1.3rem;
+}
+
+.header {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}

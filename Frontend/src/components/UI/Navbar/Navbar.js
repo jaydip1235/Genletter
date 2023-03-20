@@ -3,7 +3,7 @@ import NavbarItem from './NavbarItem';
 import classes from './Navbar.module.css';
 import logo from '../../../assets/Icon-notepad.png';
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     const logout = () => {
         window.open(`${process.env.REACT_APP_API_URL}/auth/logout`, "_self");
@@ -17,10 +17,10 @@ const Navbar = () => {
             </div>
             <div className={`${classes.right}`}>
                 <NavbarItem item='Home' link='/' />
-                <NavbarItem item='Templates' link='/templates' />
+                <NavbarItem item='Profile' link='/profile' />
                 <NavbarItem item='Blog' link='/blog' />
                 <NavbarItem item='FAQ' link='faq' />
-                <NavbarItem item='Logout' onLogout={logout} />
+                {props.user ? <NavbarItem item='Logout' onLogout={logout} /> : <NavbarItem item='Login' link='/login' />}
             </div>
         </div>
     )

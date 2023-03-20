@@ -12,7 +12,7 @@ const Resume2 = () => {
   console.log(props);
 
   const educationHandler = (degree, course) => {
-    console.log(degree + ' ' + course);
+    // console.log(degree + ' ' + course);
     let res = '' + degree;
     if (course) res += (', ' + course);
     return res;
@@ -60,15 +60,17 @@ const Resume2 = () => {
             <div className={`${styles.title}`}>Education</div>
             <hr></hr>
             <ul className={`${styles.list}`}>
-              {props.educationRef.map(education => (
-                <div className={`${styles.flexbox} ${styles.subsection}`}>
-                  <div className={`${styles.flex_left}`}>
-                    <li className={`${styles.li}`}>{education.university}</li>
-                    <div className={`${styles.italics}`}>{educationHandler(education.degree, education.course)}</div>
-                  </div>
-                  <div className={`${styles.flex_right}`}>
-                    <div>{education.year}</div>
-                    <div>{education.grade}</div>
+              {props.educationRef.map((education, index) => (
+                <div key={index}>
+                  <div className={`${styles.flexbox} ${styles.subsection}`}>
+                    <div className={`${styles.flex_left}`}>
+                      <li className={`${styles.li}`}>{education.university}</li>
+                      <div className={`${styles.italics}`}>{educationHandler(education.degree, education.course)}</div>
+                    </div>
+                    <div className={`${styles.flex_right}`}>
+                      <div>{education.year}</div>
+                      <div>{education.grade}</div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -79,20 +81,22 @@ const Resume2 = () => {
             <hr></hr>
             <ul className={`${styles.list}`}>
               {props.workexRef.map((work, i) => (
-                <div className={`${styles.subsection}`}>
-                  <div className={`${styles.flexbox}`}>
-                    <div className={`${styles.flex_left}`}>
-                      <li className={`${styles.li}`}>{work.organisation} ({props.workexRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
-                      <div className={`${styles.italics}`}>{work.title}</div>
+                <div key={i}>
+                  <div className={`${styles.subsection}`}>
+                    <div className={`${styles.flexbox}`}>
+                      <div className={`${styles.flex_left}`}>
+                        <li className={`${styles.li}`}>{work.organisation} ({props.workexRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
+                        <div className={`${styles.italics}`}>{work.title}</div>
+                      </div>
+                      <div className={`${styles.flex_right}`}>
+                        <div>{work.duration}</div>
+                        <div>Location</div>
+                      </div>
                     </div>
-                    <div className={`${styles.flex_right}`}>
-                      <div>{work.duration}</div>
-                      <div>Location</div>
-                    </div>
+                    <ul className={`${styles.sublist}`}>
+                      <li>{work.contributions}</li>
+                    </ul>
                   </div>
-                  <ul className={`${styles.sublist}`}>
-                    <li>{work.contributions}</li>
-                  </ul>
                 </div>
               ))}
             </ul>
@@ -102,18 +106,20 @@ const Resume2 = () => {
             <hr></hr>
             <ul className={`${styles.list}`}>
               {props.projectsRef.map((project, i) => (
-                <div className={`${styles.subsection}`}>
-                  <div className={`${styles.flexbox}`}>
-                    <div className={`${styles.flex_left}`}>
-                      <li className={`${styles.li}`}>{project.name} ({props.projectsRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
+                <div key={i}>
+                  <div className={`${styles.subsection}`}>
+                    <div className={`${styles.flexbox}`}>
+                      <div className={`${styles.flex_left}`}>
+                        <li className={`${styles.li}`}>{project.name} ({props.projectsRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
+                      </div>
+                      <div className={`${styles.flex_right}`}>
+                        <div>Duration</div>
+                      </div>
                     </div>
-                    <div className={`${styles.flex_right}`}>
-                      <div>Duration</div>
-                    </div>
+                    <ul className={`${styles.sublist}`}>
+                      <li>{project.description}</li>
+                    </ul>
                   </div>
-                  <ul className={`${styles.sublist}`}>
-                    <li>{project.description}</li>
-                  </ul>
                 </div>
               ))}
             </ul>
@@ -137,18 +143,20 @@ const Resume2 = () => {
             <hr></hr>
             <ul className={`${styles.list}`}>
               {props.porRef.map((por, i) => (
-                <div className={`${styles.subsection}`}>
-                  <div className={`${styles.flexbox}`}>
-                    <div className={`${styles.flex_left}`}>
-                      <li className={`${styles.li}`}>{porHandler(por.position, por.organisation)} ({props.porRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
+                <div key={i}>
+                  <div className={`${styles.subsection}`}>
+                    <div className={`${styles.flexbox}`}>
+                      <div className={`${styles.flex_left}`}>
+                        <li className={`${styles.li}`}>{porHandler(por.position, por.organisation)} ({props.porRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
+                      </div>
+                      <div className={`${styles.flex_right}`}>
+                        <div>{por.duration}</div>
+                      </div>
                     </div>
-                    <div className={`${styles.flex_right}`}>
-                      <div>{por.duration}</div>
-                    </div>
+                    <ul className={`${styles.sublist}`}>
+                      <li>{por.work}</li>
+                    </ul>
                   </div>
-                  <ul className={`${styles.sublist}`}>
-                    <li>{por.work}</li>
-                  </ul>
                 </div>
               ))}
             </ul>
@@ -158,15 +166,17 @@ const Resume2 = () => {
             <hr></hr>
             <ul className={`${styles.list}`}>
               {props.achievementsRef.map((ac, i) => (
-                <div className={`${styles.subsection}`}>
-                  <div className={`${styles.flexbox}`}>
-                    <div className={`${styles.flex_left}`}>
-                      <li className={`${styles.li}`}>{ac.achievement} ({props.achievementsRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
+                <div key={i}>
+                  <div className={`${styles.subsection}`}>
+                    <div className={`${styles.flexbox}`}>
+                      <div className={`${styles.flex_left}`}>
+                        <li className={`${styles.li}`}>{ac.achievement} ({props.achievementsRef[i].links.map((link, index) => (<a key={index} className={`${styles.link}`} target='_blank' rel='noreferrer' href={link.link}> {link.name} </a>))})</li>
+                      </div>
                     </div>
+                    <ul className={`${styles.sublist}`}>
+                      {ac.description ? <li>{ac.description}</li> : ''}
+                    </ul>
                   </div>
-                  <ul className={`${styles.sublist}`}>
-                    {ac.description ? <li>{ac.description}</li> : ''}
-                  </ul>
                 </div>
               ))}
             </ul>
